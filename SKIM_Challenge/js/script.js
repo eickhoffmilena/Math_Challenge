@@ -1,35 +1,36 @@
 //1 CONSTANTS
 
 //Defining constants for elements that are reocurring in my functions
-const errorMessage = 'Please enter an integer number between 1 and 18!'
-const getResult1 = document.getElementById('result1')
-const getForm1 = document.getElementById('formC1')
-const getInput1 = document.getElementById('inputChallenge1')
-const getButton1 = document.getElementById('buttonChallenge1')
+const getResult1 = document.getElementById('result-1')
+const getForm1 = document.getElementById('form-c1')
+const getInput1 = document.getElementById('input-challenge-1')
+const getButton1 = document.getElementById('button-challenge-1')
 
-const getResult2 = document.getElementById('result2')
-const getForm2 = document.getElementById('formC2')
-const getInput2 = document.getElementById('inputChallenge2')
-const getButton2 = document.getElementById('buttonChallenge2')
+const getResult2 = document.getElementById('result-2')
+const getForm2 = document.getElementById('form-c2')
+const getInput2 = document.getElementById('input-challenge-2')
+const getButton2 = document.getElementById('button-challenge-2')
+const errorMessage2 = 'Please enter a positive integer number!'
 
 //2 ACTIONS
 
 //Executing the calculateFactorial function when button1 is clicked
 getButton1.onclick = function() {
     getResult1.style.color = 'black';
-    calculateFactorial(getInput1.value);
+    getResult1.innerHTML = calculateFactorial(getInput1.value);
 };
 
 //Executing the calculateSKIM function when button2 is clicked
 getButton2.onclick = function() {
     getResult2.innerHTML = "";
     getResult2.style.color = 'black';
-    calculateSKIM(getInput2.value);
+    getResult2.innerHTML = calculateSKIM(getInput2.value, getResult2, getForm2, errorMessage2);
 };
 
 //Executing the reset function when the reset button is clicked
 document.getElementById("reset").onclick = function() {
-    reset();
+    reset(getForm1, getResult1);
+    reset(getForm2, getResult2);
 };
 
 //3 FUNCTIONS
@@ -41,62 +42,59 @@ function isInt(value) {
     !isNaN(parseInt(value, 10));
 }
 
-//Challenge 1 - The input is multiplied by itself minus 1 until it reaches 1
-function calculateFactorial(valueC1) {
-    //Throwing an error message when the input is not a number or not between 1 and 18
+//Throw and catch errors
+//Throwing an error message when the input is not a number or not positive
+function throwAndCatchErrors(value, getResult, getForm, errorMessage) {
     try {
-        if (!isInt(valueC1)) throw errorMessage;
-        if (valueC1 <= 0) throw errorMessage;
-        if (valueC1 >= 19) throw errorMessage;
+        if (!isInt(value)) throw errorMessage;
+        if (value <= 0) throw errorMessage;
+        //removed the upper limit after feedback
+        return 'validInput';
     }
     
     catch(e) {
-        getResult1.innerHTML = e;
-        getResult1.style.color = 'red';
-        getForm1.reset();
-        return;
+        getResult.innerHTML = e;
+        getResult.style.color = 'red';
+        getForm.reset();
+        return 'notValidInput';
     }
+}
+
+//Challenge 1 - The input is multiplied by itself minus 1 until it reaches 1
+function calculateFactorial(value) {
 
     //Calculating the factorial
-    if(valueC1 == 0 || valueC1 == 1){
-        return getResult1.innerHTML = 1;
+    if(value == 1){
+        return 1;
     }else{
-        return getResult1.innerHTML = valueC1 *= calculateFactorial(valueC1-1);
+        return value * calculateFactorial(value-1);
     }
 }
 
 
 //Challenge 2 - SKIM is a great place to work!
-function calculateSKIM(valueC2) {
-    //Throwing an error message when the input is not a number or not between 1 and 18
-    try {
-        if (!isInt(valueC2)) throw errorMessage;
-        if (valueC2 <= 0) throw errorMessage;
-        if (valueC2 >= 19) throw errorMessage;
+function calculateSKIM(value, getResult, getForm, errorMessage) {
+    //Throwing an error message when the input is not a number or not positive
+    let validInput = throwAndCatchErrors(value, getResult, getForm, errorMessage);
+    if (validInput == 'notValidInput') return errorMessage;
+   
+    //Executing the function
+    let SKIMList = [];
+    let logElement = '';
+    for (let i = 0; i < value;) {
+        logElement = ((++i % 3 ? '' : 'SKIM ') + (i % 5 ? '' : 'is a great place to work!!') || i);
+        console.log(logElement);
+        SKIMList.push(logElement);
     }
     
-    catch(e) {
-        getResult2.innerHTML = e;
-        getResult2.style.color = 'red';
-        getForm2.reset();
-        return;
-    }
-
-    //Executing the function
-    for (let i = 0; i < valueC2;) {
-        let element = document.createElement('li')
-        element.innerText = "";
-            {element.innerText += ((++i % 3 ? '' : 'SKIM ') + (i % 5 ? '' : 'is a great place to work!!') || i)}
-        
-        getResult2.appendChild(element);
-    }
+    //Formatting the output to display as a list 
+    SKIMList = SKIMList.map(n => '<li>' + n + '</li>').join(' ');
+    
+    return SKIMList;
 }
 
 //Reset
-function reset() {
-    getForm1.reset();
-    getForm2.reset();
-
-    getResult1.innerHTML = "";
-    getResult2.innerHTML = "";
+function reset(getForm, getResult) {
+    getForm.reset();
+    getResult.innerHTML = "";
 }

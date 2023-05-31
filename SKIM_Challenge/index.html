@@ -17,40 +17,40 @@
     </head>
     <body>
         <div id="page-container">
-            <div id="content-wrap">
+            <div id="content-wrap-above-footer">
                 <h1>The SKIM Application Challenge</h1> 
                 <div class="flex-container">
-                        <div class="flex-childC1">
-                        <form id="formC1" onSubmit="return false">
+                        <div class="flex-child-c1">
+                        <form id="form-c1" onSubmit="return false">
                             <label>
                                 The following value will be multiplied by itself minus 1 until it reaches 1.<br>
                                 <small>Please enter an integer number between 1 and 18.</small><br>
-                                <input type="text" id="inputChallenge1" placeholder="Value">
+                                <input type="number" min="1" max="18" id="input-challenge-1" placeholder="Value">
                             </label><br>
-                            <div id="result1">
+                            <div id="result-1">
                             
                             </div> <!--Result Challenge 1-->
-                            <button type="button" id="buttonChallenge1">Calculate!</button>
+                            <button type="button" id="button-challenge-1">Calculate!</button>
                         </form>
                     </div> <!-- Challenge 1 -->
 
-                    <div class="flex-childC2">
-                        <form id="formC2" onSubmit="return false">
+                    <div class="flex-child-c2">
+                        <form id="form-c2" onSubmit="return false">
                             <label>
                                 Is SKIM a great place to work?<br>
-                                <small>Type in any integer number between 1 and 18 to find out!</small><br>
-                                <input type="text" id="inputChallenge2" placeholder="Value">
+                                <small>Type in any positive integer number to find out!</small><br>
+                                <input type="text" id="input-challenge-2" placeholder="Value">
                             </label><br>
-                            <div id="result2">
+                            <div id="result-2">
                             
                             </div> <!--Result Challenge 2-->
-                            <button type="button" id="buttonChallenge2">Find out!</button>
+                            <button type="button" id="button-challenge-2">Find out!</button>
                         </form>
 
                     </div> <!-- Challenge 2 -->
                 </div> <!--flex-container-->
                 <div id="reset-button"><button type="button" id="reset">Reset</button></div>
-            </div> <!--Content wrap-->
+            </div> <!--Content wrap above footer-->
             <footer>
                 <p>Copyright &copy; 2023 Milena Eickhoff. Thank you for your attention.</p>
             </footer>

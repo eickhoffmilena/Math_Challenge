@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 }
   
-#content-wrap {
+#content-wrap-above-footer {
     padding-bottom: 2.5rem;
 }
 
@@ -37,7 +37,7 @@ h1 {
     margin: 60px 0 40px;
    
 }
-.flex-childC1 {
+.flex-child-c1 {
     justify-content: center;
     text-align: center;
     margin: 40px;
@@ -45,7 +45,7 @@ h1 {
     padding: 70px;
 }
 
-.flex-childC2 {
+.flex-child-c2 {
     justify-content: center;
     text-align: center;
     margin: 40px;
@@ -55,6 +55,7 @@ h1 {
 
 input  {
     margin: 20px;
+    padding: 5px;
 }
 
 #reset-button {
@@ -102,13 +103,13 @@ footer p {
     font-size: 14px;
 }
 
-#result1 {
+#result-1 {
     font-size: 18px;
     text-align: center;
     margin-bottom: 15px;
 }
 
-#result2 {
+#result-2 {
     font-size: 16px;
     list-style-type: none;
     margin-bottom: 15px;
