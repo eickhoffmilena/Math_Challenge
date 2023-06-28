@@ -40,17 +40,17 @@ h1 {
 .flex-child-c1 {
     justify-content: center;
     text-align: center;
-    margin: 40px;
+    margin: 30px;
     background-color: #E6F0F2;
-    padding: 70px;
+    padding: 40px;
 }
 
 .flex-child-c2 {
     justify-content: center;
     text-align: center;
-    margin: 40px;
+    margin: 30px;
     background-color: #E6F0F2;
-    padding: 60px;
+    padding: 40px;
 }
 
 input  {
@@ -60,7 +60,7 @@ input  {
 
 #reset-button {
     text-align: center;
-    margin: 0 0 50px;
+    margin: 0 0 95px;
 }
 
 button {

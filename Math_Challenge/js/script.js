@@ -20,11 +20,11 @@ getButton1.onclick = function() {
     getResult1.innerHTML = calculateFactorial(getInput1.value);
 };
 
-//Executing the calculateSKIM function when button2 is clicked
+//Executing the calculateBackToWork function when button2 is clicked
 getButton2.onclick = function() {
     getResult2.innerHTML = "";
     getResult2.style.color = 'black';
-    getResult2.innerHTML = calculateSKIM(getInput2.value, getResult2, getForm2, errorMessage2);
+    getResult2.innerHTML = calculateBackToWork(getInput2.value, getResult2, getForm2, errorMessage2);
 };
 
 //Executing the reset function when the reset button is clicked
@@ -72,25 +72,25 @@ function calculateFactorial(value) {
 }
 
 
-//Challenge 2 - SKIM is a great place to work!
-function calculateSKIM(value, getResult, getForm, errorMessage) {
+//Challenge 2 - Should you get back to work?
+function calculateBackToWork(value, getResult, getForm, errorMessage) {
     //Throwing an error message when the input is not a number or not positive
     let validInput = throwAndCatchErrors(value, getResult, getForm, errorMessage);
     if (validInput == 'notValidInput') return errorMessage;
    
     //Executing the function
-    let SKIMList = [];
+    let mathList = [];
     let logElement = '';
     for (let i = 0; i < value;) {
-        logElement = ((++i % 3 ? '' : 'SKIM ') + (i % 5 ? '' : 'is a great place to work!!') || i);
+        logElement = ((++i % 3 ? '' : 'You should get back to work') + (i % 5 ? '' : ' but only in 5 minutes!') || i);
         console.log(logElement);
-        SKIMList.push(logElement);
+        mathList.push(logElement);
     }
     
     //Formatting the output to display as a list 
-    SKIMList = SKIMList.map(n => '<li>' + n + '</li>').join(' ');
+    mathList = mathList.map(n => '<li>' + n + '</li>').join(' ');
     
-    return SKIMList;
+    return mathList;
 }
 
 //Reset
