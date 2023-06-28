@@ -1,7 +1,7 @@
 # <h2 align="center">The Math Challenge</h3>
 *<p align="center">By Milena Eickhoff</p>*
 
-<div align="center"><img src=".Math_Challenge/css/img/Math_Challenge.png" width="70%" height="70%"></div>
+<div align="center"><img src="Math_Challenge/css/img/Math_Challenge.png" width="70%" height="70%"></div>
 
 <br>
 
